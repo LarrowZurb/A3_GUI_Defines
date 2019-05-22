@@ -31,6 +31,9 @@
 #define CT_XSLIDER          43
 #define CT_XCOMBO           44
 #define CT_ANIMATED_TEXTURE 45
+#define CT_MENU             46
+#define CT_MENU_STRIP       47
+#define CT_CHECKBOX         77
 #define CT_OBJECT           80
 #define CT_OBJECT_ZOOM      81
 #define CT_OBJECT_CONTAINER 82
@@ -41,7 +44,6 @@
 #define CT_MAP_MAIN         101
 #define CT_LISTNBOX         102
 #define CT_ITEMSLOT         103
-#define CT_CHECKBOX         77
 
 // Static styles
 #define ST_POS            0x0F
@@ -94,8 +96,8 @@
 #define TR_AUTOCOLLAPSE   2
 
 // Default grid
-#define GUI_GRID_WAbs			((safezoneW / safezoneH) min 1.2)
-#define GUI_GRID_HAbs			(GUI_GRID_WAbs / 1.2)
+#define GUI_GRID_WAbs		((safezoneW / safezoneH) min 1.2)
+#define GUI_GRID_HAbs		(GUI_GRID_WAbs / 1.2)
 #define GUI_GRID_W			(GUI_GRID_WAbs / 40)
 #define GUI_GRID_H			(GUI_GRID_HAbs / 25)
 #define GUI_GRID_X			(safezoneX)
@@ -103,7 +105,7 @@
 
 // Default text sizes
 #define GUI_TEXT_SIZE_SMALL		(GUI_GRID_H * 0.8)
-#define GUI_TEXT_SIZE_MEDIUM		(GUI_GRID_H * 1)
+#define GUI_TEXT_SIZE_MEDIUM	(GUI_GRID_H * 1)
 #define GUI_TEXT_SIZE_LARGE		(GUI_GRID_H * 1.2)
 
 // Pixel grid
@@ -111,7 +113,13 @@
 #define GRID_W (pixelW * pixelGrid * pixelScale)
 #define GRID_H (pixelH * pixelGrid * pixelScale)
 
-
+// Pixel grid ( Larrow )
+#define SCALEFACTOR getNumber( configFile >> "uiScaleFactor" )
+#define GRID_X( gridType, gridScale, num ) ( pixelW * gridType * ((( num ) * ( gridScale )) / SCALEFACTOR ))
+#define GRID_Y( gridType, gridScale, num ) ( pixelH * gridType * ((( num ) * ( gridScale )) / SCALEFACTOR ))
+//Where gridType is one of pixelGridBase, pixelGridNoUIScale, pixelGrid
+//Where gridScale is the size of a grid square ( should always be an integer so as to keep pixel precision )
+//Where num is the number of grids need for a screen position ( should always be an integer so as to keep pixel precision )
 
 //Default Arma Styled Resources types
 
