@@ -24,6 +24,7 @@
 #define CT_CONTROLS_GROUP   15
 #define CT_SHORTCUTBUTTON   16
 #define CT_HITZONES         17
+#define CT_CONTROLS_TABLE   19
 #define CT_XKEYDESC         40
 #define CT_XBUTTON          41
 #define CT_XLISTBOX         42
